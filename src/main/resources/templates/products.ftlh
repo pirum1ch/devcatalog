@@ -2,16 +2,20 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <#--    <title>${name}!</title>-->
     <title>DevCatalog</title>
 </head>
 <body>
-<#--<h2>Hello ${name}!</h2>-->
 <h1>Products</h1>
+<form action = "/" method = "get">
+    Find by title: <input type = "text" name="title"><br>
+    <input type = "submit" value="Find"/>
+</form>
 <#list productList as product>
     <div>
         <p><b>${product.title}</b> ${product.price} USD | <a href="/product/${product.id}">Details...</a></p>
     </div>
+    <#else >
+    <h3> No products </h3>
 </#list>
 <h3>New product</h3>
 <form action="/product/create" method="post">
